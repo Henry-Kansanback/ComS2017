@@ -96,15 +96,18 @@ public class DFS
     protected static <V> boolean visitDFS(DiGraph<V> aGraph, V s,
             HashMap<V, String> color, HashMap<V, V> pred, LinkedStack<V> topoOrder)
     {
+    	
     	color.put(s, "red");
     	LinkedStack<V> nt = new LinkedStack<V>();
     	LinkedStack<Iterator<Edge<V,Integer>>> edges = new LinkedStack<Iterator<Edge<V,Integer>>>();
     	Iterator<Edge<V, Integer>> siter = aGraph.adjacentTo(s).iterator();
     	nt.push(s);
     	edges.push(siter);
+    	
     	while(!nt.isEmpty())
     	{
     		V d = nt.peek();
+    		
     		Iterator<Edge<V, Integer>> citer = edges.peek();
     		if(citer.hasNext())
     		{
@@ -127,6 +130,7 @@ public class DFS
     		{
     			color.put(d,"black");
     			topoOrder.push(d);
+    			
     			nt.pop();
     			edges.pop();
     		}

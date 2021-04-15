@@ -99,6 +99,7 @@ public class MaxPath {
     				{
     					score = newdist;
     					end = v;
+    					
     				}
     			}
     			
